@@ -1,0 +1,5 @@
+This repository demonstrates a common Dockerfile bug and its solution. The initial Dockerfile fails to build due to an issue with dependencies (e.g., missing or incorrect entries in requirements.txt) or permission problems. The solution addresses these issues and provides a working Dockerfile.
+
+**Bug:** The original Dockerfile (`Dockerfile`) attempts to install Python dependencies using `pip3 install -r requirements.txt`. However, there might be issues with the requirements file, leading to a build failure.  Additionally, permission issues during the installation process can cause errors.
+
+**Solution:** The corrected Dockerfile (`Dockerfile_fixed`) addresses the dependency issues by using a more robust approach. Ensure `requirements.txt` is accurately configured. Use a non-root user during installation or make sure all files have the correct permissions.
