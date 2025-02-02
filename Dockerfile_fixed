@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y python3 python3-pip
+RUN groupadd -r appuser && useradd -r -g appuser -s /bin/bash appuser
+COPY requirements.txt .
+USER appuser
+RUN pip3 install --user -r requirements.txt
+COPY . .
+USER root
+RUN chown -R appuser:appuser /app
+USER appuser
+CMD ["python3", "./app.py"]
